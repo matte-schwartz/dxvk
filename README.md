@@ -131,7 +131,7 @@ In order to preserve the build directories for development, pass `--dev-build` t
 ```
 # change to build.32 for 32-bit
 cd /your/target/directory/build.64
-ninja install
+meson install --skip-subprojects
 ```
 
 #### Compiling manually
@@ -140,7 +140,7 @@ ninja install
 # build-win64.txt with build-win32.txt
 meson setup --cross-file build-win64.txt --buildtype release --prefix /your/dxvk/directory build.w64
 cd build.w64
-ninja install
+meson install --skip-subprojects
 ```
 
 The D3D8, D3D9, D3D10, D3D11 and DXGI DLLs will be located in `/your/dxvk/directory/bin`.
