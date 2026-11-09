@@ -1,4 +1,4 @@
-project('dxvk', ['c', 'cpp'], version : '3.1.1', meson_version : '>= 0.58', default_options : [ 'cpp_std=c++17', 'b_vscrt=static_from_buildtype', 'warning_level=2' ])
+project('dxvk', ['c', 'cpp'], version : '3.1.1', meson_version : '>= 0.60', default_options : [ 'cpp_std=c++17', 'b_vscrt=static_from_buildtype', 'warning_level=2' ])
 
 pkg = import('pkgconfig')
 cpu_family = target_machine.cpu_family()
@@ -50,9 +50,9 @@ endif
 
 dep_displayinfo = dependency(
   'libdisplay-info',
-  version: ['>= 0.0.0', '< 0.2.0'],
+  version: ['>= 0.4.0', '< 0.6.0'],
   fallback: ['libdisplay-info', 'di_dep'],
-  default_options: ['default_library=static'],
+  default_options: ['default_library=static', 'tools=disabled', 'pnp-ids=disabled'],
 )
 
 if platform == 'windows'
